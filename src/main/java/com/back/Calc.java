@@ -16,6 +16,12 @@ public class Calc {
             return opIndex == plusIndex ? left + right : left - right;
         }
 
+        int multiplyIndex = exp.lastIndexOf(" * ");
+
+        if (multiplyIndex != -1) {
+            return run(exp.substring(0, multiplyIndex)) * run(exp.substring(multiplyIndex + 3));
+        }
+
         return Integer.parseInt(exp);
     }
 }
