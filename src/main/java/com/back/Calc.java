@@ -25,6 +25,11 @@ public class Calc {
             return run(exp.substring(0, multiplyIndex)) * run(exp.substring(multiplyIndex + 2));
         }
 
+        // 괄호 앞 음수 부호: -( ... ) 는 괄호 안을 계산한 뒤 부호를 뒤집는다
+        if (exp.startsWith("-") && isWrappedInParentheses(exp.substring(1))) {
+            return -run(exp.substring(1));
+        }
+
         return Integer.parseInt(exp);
     }
 
