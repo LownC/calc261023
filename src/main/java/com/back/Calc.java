@@ -14,7 +14,7 @@ public class Calc {
 
         if (opIndex != -1) {
             int left = run(exp.substring(0, opIndex));
-            int right = run(exp.substring(opIndex + 2));
+            int right = run(exp.substring(opIndex + 3));
 
             return exp.charAt(opIndex + 1) == '+' ? left + right : left - right;
         }
@@ -22,7 +22,7 @@ public class Calc {
         int multiplyIndex = findLastTopLevelOperator(exp, "*");
 
         if (multiplyIndex != -1) {
-            return run(exp.substring(0, multiplyIndex)) * run(exp.substring(multiplyIndex + 2));
+            return run(exp.substring(0, multiplyIndex)) * run(exp.substring(multiplyIndex + 3));
         }
 
         // 괄호 앞 음수 부호: -( ... ) 는 괄호 안을 계산한 뒤 부호를 뒤집는다
